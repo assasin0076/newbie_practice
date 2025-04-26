@@ -8,7 +8,9 @@ const password = ref()
 const onPassInput = (event) => {
   const value = event.target.value
 
-  password.value = 'huy'
+
+
+  password.value = value.toLowerCase()
 }
 </script>
 
