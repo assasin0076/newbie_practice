@@ -10,7 +10,18 @@ const passwordLabel = computed(() => {
 
   return 'Ваш пароль: ' + password.value
 })
+const loginLabel = computed(() => {
 
+
+  return `Ваш логин: ` + login.value
+})
+const onLoginInput = (event) => {
+  const value = event.target.value
+
+
+
+  login.value = value.toLowerCase()
+}
 const onPassInput = (event) => {
   const value = event.target.value
 
@@ -25,14 +36,14 @@ const onPassInput = (event) => {
     <div class="bg-gray-50 w-[400px] p-4 rounded">
       <div class="flex flex-col gap-2 pb-6 mb-6 border-b-[1px] border-gray-400">
         <div>
-         Тут логин: {{login}}
+         {{loginLabel}}
         </div>
         <div>
           {{ passwordLabel }}
         </div>
       </div>
       <div class="flex gap-4 flex-col">
-        <input class="outline-none border-gray-400 border-1 p-2" v-model="login"/>
+        <input class="outline-none border-gray-400 border-1 p-2" v-model="login" @input="onLoginInput"/>
         <input class="outline-none border-gray-400 border-1 p-2" v-model="password" @input="onPassInput"/>
       </div>
     </div>
