@@ -1,9 +1,15 @@
 <script setup lang="ts">
 
-import {ref} from "vue";
+import {computed, ref} from "vue";
 
 const login = ref()
 const password = ref()
+
+const passwordLabel = computed(() => {
+
+
+  return 'Ваш пароль: ' + password.value
+})
 
 const onPassInput = (event) => {
   const value = event.target.value
@@ -22,7 +28,7 @@ const onPassInput = (event) => {
          Тут логин: {{login}}
         </div>
         <div>
-          Тут пароль: {{password}}
+          {{ passwordLabel }}
         </div>
       </div>
       <div class="flex gap-4 flex-col">
