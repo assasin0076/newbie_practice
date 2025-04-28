@@ -2,8 +2,8 @@
 
 import {computed, ref} from "vue";
 
-const login = ref()
-const password = ref()
+const login = ref("")
+const password = ref("")
 
 const passwordLabel = computed(() => {
 
@@ -29,6 +29,10 @@ const onPassInput = (event) => {
 
   password.value = value.toLowerCase()
 }
+const resetForm = () => {
+  login.value = ""
+  password.value = ""
+}
 </script>
 
 <template>
@@ -47,7 +51,7 @@ const onPassInput = (event) => {
         <input class="outline-none border-gray-400 border-1 p-2 rounded" v-model="password" @input="onPassInput"/>
       </div>
       <div class="flex flex-col gap-2 mt-6">
-        <button class="bg-gray-500 text-white p-1 !text-[14px] cursor-pointer hover:bg-gray-400 transition rounded">сбросить</button>
+        <button class="bg-gray-500 text-white p-1 !text-[14px] cursor-pointer hover:bg-gray-400 transition rounded" @click="resetForm" >сбросить</button>
         <button class="bg-green-400 text-white p-1 !text-[14px] cursor-pointer hover:bg-green-300 transition rounded">Войти</button>
       </div>
     </div>
