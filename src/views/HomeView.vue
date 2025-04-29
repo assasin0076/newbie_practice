@@ -24,10 +24,14 @@ const onLoginInput = (event) => {
 }
 const onPassInput = (event) => {
   const value = event.target.value
-
-
-
-  password.value = value.toLowerCase()
+  const lowerCaseValue = value.toLowerCase()
+  const noSpacesValue = lowerCaseValue
+    .split("")
+    .filter((el)=>{
+     return el !== " "
+    })
+    .join("")
+  password.value = noSpacesValue
 }
 const resetForm = () => {
   login.value = ""
