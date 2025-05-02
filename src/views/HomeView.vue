@@ -2,6 +2,9 @@
 
 import {computed, ref} from "vue";
 import {useRouter} from "vue-router";
+import { useTasksComposable } from '@/composables/tasksComposable.ts'
+
+const tasksComsable = useTasksComposable()
 
 const login = ref("")
 const password = ref("")
@@ -36,6 +39,18 @@ const resetForm = () => {
   login.value = ""
   password.value = ""
 }
+let counterSvetlana = 300
+
+const onEnter = () => {
+  login.value = ""
+  password.value = ""
+  counterSvetlana = counterSvetlana - 1
+  tasksComsable.addTask({
+    id: 123,
+    text: `светла ${counterSvetlana} метров`
+  })
+}
+
 </script>
 
 <template>
@@ -55,7 +70,7 @@ const resetForm = () => {
       </div>
       <div class="flex flex-col gap-2 mt-6">
         <button class="bg-gray-500 text-white p-1 !text-[14px] cursor-pointer hover:bg-gray-400 transition rounded" @click="resetForm" >сбросить</button>
-        <button class="bg-green-400 text-white p-1 !text-[14px] cursor-pointer hover:bg-green-300 transition rounded">Войти</button>
+        <button class="bg-green-400 text-white p-1 !text-[14px] cursor-pointer hover:bg-green-300 transition rounded" @click="onEnter" >Войти</button>
       </div>
     </div>
   </div>
