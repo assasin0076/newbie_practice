@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import {computed, ref} from "vue";
+import {useRouter} from "vue-router";
 
 const login = ref("")
 const password = ref("")
@@ -17,8 +18,6 @@ const loginLabel = computed(() => {
 })
 const onLoginInput = (event) => {
   const value = event.target.value
-
-
 
   login.value = value.toLowerCase()
 }
