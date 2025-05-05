@@ -1,14 +1,19 @@
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
 
-const tasks = ref([])
+const tasks: Ref<TTask[]> = ref([])
+
+type TTask = {
+  text: string
+  id: number
+  time?: number
+}
 
 export const useTasksComposable = () => {
-  const addTask = (task) => {
-    console.log(tasks.value)
+  const addTask = (task: TTask) => {
     tasks.value.push(task)
   }
 
-  const removeTask = (id) => {
+  const removeTask = (id: number) => {
     tasks.value = tasks.value.filter((task) => task.id !== id)
   }
   return {
