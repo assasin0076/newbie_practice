@@ -3,6 +3,7 @@
 import {computed, ref} from "vue";
 import {useRouter} from "vue-router";
 import { useTasksComposable } from '@/composables/tasksComposable.ts'
+import generateId from "@/helpers/generateId";
 
 const tasksComsable = useTasksComposable()
 
@@ -46,7 +47,7 @@ const onEnter = () => {
   password.value = ""
   counterSvetlana = counterSvetlana - 1
   tasksComsable.addTask({
-    id: 123,
+    id: generateId(),
     text: `светла ${counterSvetlana} метров`
   })
 }
