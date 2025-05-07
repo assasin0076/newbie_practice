@@ -10,6 +10,11 @@ const tasks = tasksComposable.tasks;
     <div
       v-for="task in tasks"
       :key="task.id"
-      class="px-4 py-2 border border-[1px] border-gray-400 rounded w-full word-br">{{task.text}}</div>
+      class="px-4 py-2 border border-[1px] border-gray-400 rounded w-full word-br">{{task.text}}
+    </div>
   </div>
 </template>
+
+<style lang="scss">
+
+</style>
