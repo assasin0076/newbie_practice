@@ -1,9 +1,11 @@
 <script setup lang="ts">
 
-import {computed, ref} from "vue";
+import {computed, Ref, ref} from "vue";
 import {useRouter} from "vue-router";
 import { useTasksComposable } from '@/composables/tasksComposable.ts'
 import generateId from "@/helpers/generateId";
+import EyeIcon from "@/components/icons/EyeIcon.vue";
+import EyeOffIcon from "@/components/icons/EyeOffIcon.vue";
 
 const tasksComsable = useTasksComposable()
 
@@ -54,6 +56,13 @@ const onEnter = () => {
   }
 }
 
+const inputType: Ref<'text' | 'password'> = ref('text');
+
+const toggleInputType = () => {
+  if (inputType.value === 'text') inputType.value = 'password'
+  else inputType.value = 'text'
+}
+
 </script>
 
 <template>
@@ -69,7 +78,13 @@ const onEnter = () => {
       </div>
       <div class="flex gap-4 flex-col">
         <input class="outline-none border-gray-400 border-1 p-2 rounded" v-model="login" @input="onLoginInput"/>
-        <input class="outline-none border-gray-400 border-1 p-2 rounded" v-model="password" @input="onPassInput"/>
+        <div class="relative w-full">
+          <input class="outline-none border-gray-400 border-1 p-2 rounded w-full" v-model="password" @input="onPassInput" :type="inputType"/>
+          <button class="cursor-pointer absolute right-0 top-0 px-2 py-[8px] transition text-gray-700 hover:text-gray-400" @click="toggleInputType">
+            <EyeIcon v-if="inputType === 'text'" class="w-5 h-5"/>
+            <EyeOffIcon v-else class="w-5 h-5"/>
+          </button>
+        </div>
       </div>
       <div class="flex flex-col gap-2 mt-6">
         <button class="bg-gray-500 text-white p-1 !text-[14px] cursor-pointer hover:bg-gray-400 transition rounded" @click="resetForm" >сбросить</button>
