@@ -41,14 +41,13 @@ const resetForm = () => {
   password.value = ""
 }
 let counterSvetlana = 300
-
 const onEnter = () => {
   login.value = ""
   password.value = ""
   counterSvetlana = counterSvetlana - 1
   tasksComsable.addTask({
     id: generateId(),
-    text: `светла ${counterSvetlana} метров`
+    text: `светлана ${counterSvetlana} метров`
   })
 }
 
