@@ -18,9 +18,13 @@ export const useTasksComposable = () => {
     tasks.value = tasks.value.filter((task) => task.id !== id)
 
   }
+  const removeAllTasks = () => {
+    tasks.value = []
+  }
   return {
     tasks,
     addTask,
     removeTask,
+    removeAllTasks,
   }
 }

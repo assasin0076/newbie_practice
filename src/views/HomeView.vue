@@ -49,6 +49,9 @@ const onEnter = () => {
     id: generateId(),
     text: `светлана ${counterSvetlana} метров`
   })
+  if(counterSvetlana === 0){
+    counterSvetlana = 1
+  }
 }
 
 </script>
