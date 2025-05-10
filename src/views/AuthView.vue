@@ -8,9 +8,6 @@ import EyeIcon from "@/components/icons/EyeIcon.vue";
 import EyeOffIcon from "@/components/icons/EyeOffIcon.vue";
 
 const router = useRouter()
-router.push({
-  name: "home"
-})
 
 const tasksComsable = useTasksComposable()
 
@@ -49,6 +46,7 @@ const resetForm = () => {
 }
 let counterSvetlana = 300
 const onEnter = () => {
+  goHome()
   resetForm()
   counterSvetlana = counterSvetlana - 1
   tasksComsable.addTask({
@@ -65,6 +63,14 @@ const inputType: Ref<'text' | 'password'> = ref('text');
 const toggleInputType = () => {
   if (inputType.value === 'text') inputType.value = 'password'
   else inputType.value = 'text'
+}
+
+const goHome = () => {
+  if(login.value === "huy" && password.value === "1488"){
+    router.push({
+      name: "home"
+    })
+  }
 }
 
 </script>
