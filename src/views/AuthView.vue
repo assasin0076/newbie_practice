@@ -3,7 +3,6 @@
 import {computed, Ref, ref} from "vue";
 import {useRouter} from "vue-router";
 import { useTasksComposable } from '@/composables/tasksComposable.ts'
-import generateId from "@/helpers/generateId";
 import EyeIcon from "@/components/icons/EyeIcon.vue";
 import EyeOffIcon from "@/components/icons/EyeOffIcon.vue";
 
@@ -50,7 +49,6 @@ const onEnter = () => {
   resetForm()
   counterSvetlana = counterSvetlana - 1
   tasksComsable.addTask({
-    id: generateId(),
     text: `светлана ${counterSvetlana} метров`
   })
   if(counterSvetlana === 0){
