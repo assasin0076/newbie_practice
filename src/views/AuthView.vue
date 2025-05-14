@@ -13,6 +13,8 @@ const tasksComsable = useTasksComposable()
 const login = ref("")
 const password = ref("")
 
+const isErrorVisible = ref(false)
+
 const passwordLabel = computed(() => {
 
 
@@ -46,7 +48,6 @@ const resetForm = () => {
 let counterSvetlana = 300
 const onEnter = () => {
   goHome()
-  resetForm()
   counterSvetlana = counterSvetlana - 1
   tasksComsable.addTask({
     text: `светлана ${counterSvetlana} метров`
@@ -54,15 +55,19 @@ const onEnter = () => {
   if(counterSvetlana === 0){
     counterSvetlana = 1
   }
+  if(login.value !== "huy" || password.value !== "1488"){
+    isErrorVisible.value = true
+  } else{
+    isErrorVisible.value = false
+  }
+  resetForm()
 }
-
 const inputType: Ref<'text' | 'password'> = ref('text');
 
 const toggleInputType = () => {
   if (inputType.value === 'text') inputType.value = 'password'
   else inputType.value = 'text'
 }
-
 const goHome = () => {
   if(login.value === "huy" && password.value === "1488"){
     router.push({
@@ -94,7 +99,10 @@ const goHome = () => {
           </button>
         </div>
       </div>
-      <div class="flex flex-col gap-2 mt-6">
+      <div class="flex flex-col gap-2 mt-2">
+        <div v-if="isErrorVisible" class="my-4">
+          Неверный Логин или Пароль
+        </div>
         <button class="bg-gray-500 text-white p-1 !text-[14px] cursor-pointer hover:bg-gray-400 transition rounded" @click="resetForm" >сбросить</button>
         <button class="bg-green-400 text-white p-1 !text-[14px] cursor-pointer hover:bg-green-300 transition rounded" @click="onEnter" >Войти</button>
       </div>
