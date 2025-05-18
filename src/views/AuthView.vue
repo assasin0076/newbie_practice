@@ -79,7 +79,7 @@ const goHome = () => {
 </script>
 
 <template>
-  <div class="w-full p-10 flex items-center justify-center ">
+  <div class="w-full h-full p-10 pb-[200px] flex items-center justify-center ">
     <div class="bg-gray-50 w-[400px] p-4 rounded border-1 !border-gray-300">
       <div class="flex flex-col gap-2 pb-6 mb-6 border-b-[1px] border-gray-400">
         <div>
