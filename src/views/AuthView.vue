@@ -45,17 +45,27 @@ const resetForm = () => {
   login.value = ""
   password.value = ""
 }
+const checkIsCredsWronge = () => login.value !== "huy" || password.value !== "1488"
 let counterSvetlana = 300
+const svetlana = ()=>{
+  counterSvetlana = counterSvetlana - 1
+  if (counterSvetlana <= 0) {counterSvetlana = 0}
+
+
+  if (checkIsCredsWronge()) {
+    tasksComsable.addTask({
+      text: `Светлана ${counterSvetlana} метров`
+    })
+  } else{
+    tasksComsable.addTask({
+      text: `Вы вошли в Светлану!`
+    })
+  }
+}
 const onEnter = () => {
   goHome()
-  counterSvetlana = counterSvetlana - 1
-  tasksComsable.addTask({
-    text: `светлана ${counterSvetlana} метров`
-  })
-  if(counterSvetlana === 0){
-    counterSvetlana = 1
-  }
-  if(login.value !== "huy" || password.value !== "1488"){
+  svetlana()
+  if (checkIsCredsWronge()) {
     isErrorVisible.value = true
   } else{
     isErrorVisible.value = false
@@ -79,7 +89,7 @@ const goHome = () => {
 </script>
 
 <template>
-  <div class="w-full h-full p-10 pb-[200px] flex items-center justify-center bg-[url('src/assets/phoneimage.jpg')] bg-cover bg-center ">
+  <div class="w-full h-full p-10 pb-[200px] flex items-center justify-center bg-[url('src/assets/phoneimage.jpg')] bg-cover bg-center">
     <div class="bg-gray-50 w-[400px] p-4 rounded border-1 !border-gray-300  ">
       <div class="flex flex-col gap-2 pb-6 mb-6 border-b-[1px] border-gray-400">
         <div>
