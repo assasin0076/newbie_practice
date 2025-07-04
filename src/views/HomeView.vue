@@ -22,20 +22,19 @@ const goHome = () => {
         Exit
       </button>
     </div>
-  </div>
-
-  <div class="fixed top-0 left-0 right-0 h-[70px] w-[calc(100%-280px)] translate-x-[280px] bg-cyan-900 grid grid-cols-4 gap-5 z-[50]">
-    <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
-      Здесь
-    </div>
-    <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
-      Могла быть
-    </div>
-    <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
-      Ваша
-    </div>
-    <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
-      Реклама
+    <div class="fixed top-0 left-0 right-0 h-[70px] w-[calc(100%-280px)] translate-x-[280px] bg-cyan-900 grid grid-cols-4 gap-5 z-[50]">
+      <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
+        Здесь
+      </div>
+      <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
+        Могла быть
+      </div>
+      <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
+        Ваша
+      </div>
+      <div class="p-4 items-center justify-center bg-cyan-500 shadow-lg shadow-cyan-500/50 ring-3 ring-cyan-700">
+        Реклама
+      </div>
     </div>
   </div>
 
